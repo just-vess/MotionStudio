@@ -88,50 +88,68 @@
               "x": 378,
               "y": 537,
               "opacity": 1,
-              "scale": 1
+              "scale": 1,
+              "ease": "smooth",
+              "rotate": 0
             },
             {
               "at": 5,
               "x": 378,
               "y": 540,
               "opacity": 1,
-              "scale": 1
+              "scale": 1,
+              "ease": "smooth",
+              "rotate": -1
             },
             {
               "at": 9,
               "x": 378,
               "y": 537,
               "opacity": 1,
-              "scale": 1
+              "scale": 1,
+              "ease": "smooth",
+              "rotate": 1
             },
             {
               "at": 15,
               "x": 378,
               "y": 540,
               "opacity": 1,
-              "scale": 1
+              "scale": 1,
+              "ease": "smooth",
+              "rotate": 0
             },
             {
               "at": 19,
               "x": 671,
               "y": 557,
               "opacity": 1,
-              "scale": 1
+              "scale": 1,
+              "ease": "smooth",
+              "rotate": -2
             },
             {
               "at": 23.5,
               "x": 1057,
               "y": 541,
               "opacity": 1,
-              "scale": 1
+              "scale": 1,
+              "ease": "smooth",
+              "rotate": 1
             },
             {
               "at": 29.5,
               "x": 1057,
               "y": 538,
               "opacity": 1,
-              "scale": 1
+              "scale": 1,
+              "ease": "smooth",
+              "rotate": 0
             }
+          ],
+          "pivot": [
+            0.5,
+            0.75
           ]
         },
         {
@@ -188,6 +206,42 @@
               "scale": 1
             }
           ]
+        }
+      ],
+      "camera": [
+        {
+          "at": 0,
+          "x": 800,
+          "y": 450,
+          "scale": 1
+        },
+        {
+          "at": 5,
+          "x": 802,
+          "y": 462,
+          "scale": 1.05,
+          "ease": "smooth"
+        },
+        {
+          "at": 10,
+          "x": 879,
+          "y": 458,
+          "scale": 1.1,
+          "ease": "smooth"
+        },
+        {
+          "at": 16,
+          "x": 769,
+          "y": 455,
+          "scale": 1.08,
+          "ease": "smooth"
+        },
+        {
+          "at": 26,
+          "x": 800,
+          "y": 450,
+          "scale": 1,
+          "ease": "smooth"
         }
       ]
     },

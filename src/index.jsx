@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Composition, Html5Audio, Img, OffthreadVideo, Sequence, interpolate, registerRoot, staticFile, useCurrentFrame} from 'remotion';
 import board from '../content/storyboard.json';
 import './style.css';
-import {Illustration} from './Illustration';
+import {Illustration, IllustrationCaptions} from './Illustration';
 
 const fps = 30;
 const total = board.scenes.reduce((sum, scene) => sum + Math.round(scene.seconds * fps), 0);
@@ -25,6 +25,7 @@ function Scene({scene}) {
     return <AbsoluteFill style={{background:'#102d31'}}>
       <OffthreadVideo src={staticFile(scene.video)} muted trimBefore={Math.round((scene.trimStart ?? 0) * fps)}
         style={{width:'100%', height:'100%', objectFit:'contain'}}/>
+      {scene.cues && <IllustrationCaptions cues={scene.cues}/>}
     </AbsoluteFill>;
   }
   if (scene.layout === 'illustration') return <Illustration scene={scene}/>;

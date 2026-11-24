@@ -9,7 +9,9 @@
     "check": "node scripts/check.mjs",
     "preview": "npm run check && remotion studio src/index.jsx",
     "pilot": "npm run check && remotion render src/index.jsx Pilot out/pilot.mp4 --codec=h264 --scale=0.5 --concurrency=2",
-    "render": "npm run check && remotion render src/index.jsx Ecosystem out/ecosystem.mp4 --codec=h264 --concurrency=2"
+    "render": "npm run check && remotion render src/index.jsx Ecosystem out/ecosystem.mp4 --codec=h264 --concurrency=2",
+    "review": "npm run check && node scripts/review.mjs",
+    "review:pilot": "npm run check && node scripts/review.mjs pilot"
   },
   "dependencies": {
     "@remotion/cli": "4.0.546",

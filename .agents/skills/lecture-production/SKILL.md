@@ -5,10 +5,24 @@ description: Plan a five-minute illustrated video from an existing lecture and s
 
 # Lecture production
 
-Read [the operator guide](../../../docs/MULTI-MODEL.md) and [the handoff format](../../../docs/VIDEO-PLAN.md). Keep the original wording of approved voice-over and keep each fact traceable to a slide, a script passage, or a recording timestamp. Work with files the user has put in inputs/. If those files are empty, ask for the existing lecture and script before inferring any project detail.
+Read [the operator guide](../../../docs/MULTI-MODEL.md) and [the handoff format](../../../docs/VIDEO-PLAN.md). Keep the original wording of approved voice-over and keep each fact traceable to a slide, a script passage, or a recording timestamp. Work with files the user has put in `inputs/`. If those files are empty, ask for the existing lecture and script before inferring any project detail.
 
-In Antigravity, use the bundled native workflow when requested by running `/run-workflow Run workflows/lecture_plan.py`. The workflow uses a Flash source reviewer and a Pro visual director, then a Pro editor who reconciles their results. Review work/video-plan.md against the source and tell the user which 30 seconds to watch first. Use Vietnamese for the plan, existing narration, and on-screen wording when the lecture is Vietnamese.
+## Planning in Antigravity (Gemini Multi-Agent)
 
-For a manual run, perform the same three steps in this conversation. Write work/video-plan.md only when there is enough source material. Use exact English prompts for the optional image or video generation stages and keep on-screen words in the lecture language.
+In Antigravity, use the bundled native workflow when requested by running `/run-workflow Run workflows/lecture_plan.py`. The workflow spawns a `flash` source reviewer and a `pro` visual director in parallel, then a `pro` editor reconciles their reports into `work/video-plan.md`.
 
-When the plan is ready, hand off work/video-plan.md to Claude Code with the /ecosystem-video skill. If using Antigravity Orchestrator with a Claude executor, ask it to read .claude/skills/ecosystem-video/SKILL.md, implement the approved plan in this folder, and run npm run pilot. For Google Gemini image generation or Flow, give the operator the asset prompts collected in the plan. They can place downloaded assets in public/media/. The workflow works with local still illustrations if they choose to skip generated clips.
+If the user's account does not have Dynamic Workflows enabled, run the same three steps manually in conversation (using subagents or sequential turns) and save `work/video-plan.md` only when there is enough source material in `inputs/`.
+
+Include concrete visual direction that matches the upgraded Remotion renderer in `src/Illustration.jsx` and `src/index.jsx`:
+- Scene `layout` (`illustration`, `flow`, `image`, `video`, `statement`).
+- For `illustration`: camera framing/pan-zoom beats (`camera` on `1600 × 900`), easing feel (`smooth`, `in`, `out`, `linear`, `hold`), rotation/pivot cues (`rotate`, `pivot`), `showTitle: false` when visuals already open cleanly, and `cue.end` silence gaps where helpful.
+- For `video`: `public/media/*.mp4` filename, `trimStart` (seconds aligned to 30 fps), optional `cues` for Vietnamese captions, and a still-image or Remotion fallback.
+- Use exact concise English prompts for optional image (Gemini / Nano Banana) or video (Google Flow) assets while keeping narration, scene titles, and on-screen cues in the lecture language (Vietnamese when the lecture is Vietnamese).
+
+Review `work/video-plan.md` against `inputs/` and tell the user which 30-second pilot cut (`pilotStart`) to watch first.
+
+## Handing off to Claude Code (Client Machine or Orchestrator)
+
+1. **Client machine with Claude Code**: Transfer `work/video-plan.md` plus any downloaded assets in `public/media/` (note that `.gitignore` keeps `inputs/`, `work/`, and `public/media/*` untracked by default) and run `/ecosystem-video`. Claude Code's `.claude/agents/` (`source-reviewer` and `video-qa`) will cross-check citations, build `content/storyboard.json` + `work/storyboard.md`, render `out/pilot.mp4` (`npm run pilot`), and inspect `out/review-pilot.html` (`npm run review:pilot`).
+2. **Antigravity Orchestrator (when available in Model settings)**: With Gemini as planner and Claude Sonnet as executor, instruct the executor to read `.claude/skills/ecosystem-video/SKILL.md`, implement `work/video-plan.md`, and run `npm run pilot` + `npm run review:pilot`.
+3. **Post-render Gemini review loop**: Inspect `out/pilot.mp4` or `out/review-pilot.html` in Gemini and send at most three concrete fixes back to Claude Code formatted as `mã cảnh / mốc giây / điều hiểu sai / cách sửa`.
