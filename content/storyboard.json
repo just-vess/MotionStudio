@@ -1,0 +1,52 @@
+{
+  "title": "Từ yêu cầu đến lịch dùng phòng",
+  "targetSeconds": 40,
+  "pilotStart": 5,
+  "audio": null,
+  "scenes": [
+    {
+      "id": "request",
+      "seconds": 10,
+      "layout": "statement",
+      "title": "Ai đang giữ lịch phòng?",
+      "detail": "Một người cần đặt phòng. Hai nhóm đang giữ hai bản lịch.",
+      "source": "Ví dụ hư cấu · phần 1",
+      "narration": "Khi hai nhóm giữ hai bản lịch, người đặt phòng cần hỏi từng nhóm để biết phòng còn trống."
+    },
+    {
+      "id": "handoff",
+      "seconds": 20,
+      "layout": "flow",
+      "title": "Theo dấu một yêu cầu",
+      "detail": "Cùng một mã yêu cầu đi qua ba bước.",
+      "source": "Ví dụ hư cấu · phần 2",
+      "narration": "Người đặt gửi giờ và số người. Bộ phận điều phối đối chiếu lịch. Khi xác nhận được gửi về, hai bên cùng biết phòng nào đã được giữ.",
+      "steps": [
+        {
+          "at": 0,
+          "label": "Người đặt",
+          "result": "Gửi giờ và số người"
+        },
+        {
+          "at": 6,
+          "label": "Điều phối",
+          "result": "Đối chiếu lịch phòng"
+        },
+        {
+          "at": 13,
+          "label": "Người nhận",
+          "result": "Nhận xác nhận giữ chỗ"
+        }
+      ]
+    },
+    {
+      "id": "close",
+      "seconds": 10,
+      "layout": "statement",
+      "title": "Một lịch đã xác nhận",
+      "detail": "Người đặt tra lại cùng một mã khi cần đổi giờ.",
+      "source": "Ví dụ hư cấu · phần 3",
+      "narration": "Khi cần đổi giờ, người đặt dùng lại mã yêu cầu để tìm đúng lịch đã xác nhận."
+    }
+  ]
+}

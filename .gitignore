@@ -1,0 +1,12 @@
+node_modules/
+out/
+build/
+.remotion/
+inputs/*
+!inputs/.gitkeep
+public/media/*
+!public/media/.gitkeep
+work/
+*.bundle
+*.zip
+.claude/settings.local.json

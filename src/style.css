@@ -1,0 +1,19 @@
+* { box-sizing: border-box; }
+.canvas { font-family: "Segoe UI", Arial, sans-serif; background: #102d31; color: #faf6e8; padding: 80px 116px; }
+.canvas header { font-size: 32px; color: #a8d5c8; border-bottom: 2px solid #436265; padding-bottom: 28px; }
+.canvas main { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 90px; }
+h1, h2, p { margin: 0; overflow-wrap: anywhere; }
+h1 { font-size: 100px; line-height: 1.13; letter-spacing: -3px; max-width: 1520px; }
+.detail { margin-top: 40px; font-size: 48px; line-height: 1.35; color: #d3e6de; max-width: 1450px; }
+.flow { display: flex; }
+.station { flex: 1; min-width: 0; }
+.track { height: 58px; display: flex; align-items: center; }
+.track i { width: 30px; height: 30px; border-radius: 50%; background: #ffd387; }
+.track span { height: 4px; flex: 1; background: #8daea3; }
+.station h2 { font-size: 49px; margin: 28px 34px 12px 0; }
+.station p { font-size: 38px; color: #cee3db; margin-right: 36px; }
+.canvas.image main { flex-direction: row; align-items: center; gap: 60px; }
+.image section { flex: 1; }
+.image h1 { font-size: 76px; }
+.image .detail { font-size: 40px; }
+.visual { width: 57%; height: 720px; object-fit: contain; }
