@@ -28,7 +28,7 @@ try {
     requireValue(wholeFrames(s.seconds) && s.seconds > 0, s.id + ' cần thời lượng dương, khớp frame ở 30 fps');
     frames += Math.round(s.seconds * 30);
     for (const key of ['title', 'source', 'narration', 'detail']) requireValue(text(s[key]), s.id + ' thiếu ' + key);
-    requireValue(['statement', 'flow', 'image', 'illustration'].includes(s.layout), s.id + ' sai layout');
+    requireValue(['statement', 'flow', 'image', 'illustration', 'video'].includes(s.layout), s.id + ' sai layout');
     if (s.layout === 'illustration') {
       requireValue(Array.isArray(s.layers) && s.layers.length > 0, s.id + ' thiếu lớp minh họa');
       const timeline = entries => {
@@ -45,6 +45,12 @@ try {
         for (const k of layer.keys) requireValue([k.x,k.y,k.scale,k.opacity].every(Number.isFinite) &&
           k.scale > 0 && k.opacity >= 0 && k.opacity <= 1, s.id + ' sai vị trí hoặc độ hiện của lớp');
       }
+    }
+    if (s.layout === 'video') {
+      media(s.video, s.id + '.video');
+      requireValue(/\.mp4$/i.test(s.video), s.id + ' cần clip MP4');
+      const trimStart = s.trimStart ?? 0;
+      requireValue(wholeFrames(trimStart) && trimStart >= 0, s.id + ' trimStart cần khớp frame và không âm');
     }
     if (s.layout === 'image') media(s.image, s.id + '.image');
     if (s.layout === 'flow') {

@@ -5,6 +5,10 @@ description: Dùng lecture, slide và script sẵn có để dựng motion graph
 
 # Dựng video từ lecture đã có
 
+## Nhận bàn giao từ Gemini
+
+Nếu có work/video-plan.md, dùng nó làm bản phân cảnh đầu vào và kiểm tra các trích dẫn chính với inputs/. Giữ mã cảnh, lời đã duyệt và chỉ dựng phần người dùng yêu cầu. Nếu Gemini và script khác nhau, ưu tiên bản lời đã duyệt. Với clip Flow đã tải, dùng layout video, video là đường dẫn trong media/ và trimStart nếu cần cắt phần mở. Chọn thời lượng cảnh nằm trong phần có thật của clip. Render clip ở chế độ tắt tiếng để track lời của bài kiểm soát âm thanh. Nếu chưa có clip, dựng từ ảnh hay lớp hình hiện có.
+
 ## Đọc nguồn và lập bản dựng
 
 1. Đọc README.md, content/storyboard.json và tài liệu trong inputs/. Ưu tiên thứ tự, giọng văn, thuật ngữ và các câu đã chốt trong script. Dùng lecture để tìm đúng hình hoặc bằng chứng cho từng câu. Nếu người dùng cho hai bản khác nhau, ghi rõ bản đang dùng. Giữ nguyên tệp gốc.

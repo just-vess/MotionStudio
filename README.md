@@ -2,12 +2,14 @@
 
 Bộ dựng dành cho người đã có bài giảng, slide hoặc kịch bản gần hoàn chỉnh. Anh đưa tài liệu vào thư mục, mở Claude Code và yêu cầu dựng. Claude chuyển lời đã viết thành các cảnh, rồi Remotion xuất video trên máy. Cảnh mẫu trong repo kể một câu chuyện hư cấu về hai bến cảng, dài 36 giây để thử quy trình.
 
+**Dùng Google AI Pro cùng Claude.** Xem [workflow đa mô hình](docs/MULTI-MODEL.md) để tạo storyboard trong Antigravity và chuyển ảnh, clip cùng kế hoạch sang Claude Code.
+
 ## Mở lần đầu
 
 Cần Node.js từ 22 trở lên cùng npm, và Claude Code để chuyển nội dung bằng câu lệnh tiếng Việt. Với bản Git bundle, đặt file bundle vào một thư mục rồi chạy:
 
 ~~~sh
-git clone motionstudio-starter.bundle MotionStudio
+git clone motionstudio-multimodel.bundle MotionStudio
 cd MotionStudio
 npm ci
 ~~~
@@ -44,6 +46,7 @@ Có thể chạy ngay các lệnh trên với ví dụ đi kèm. Bản mẫu dù
 | illustration | Kể chuyện bằng tranh nhiều lớp và chuyển động theo lời | layers và cues. Mẫu đầy đủ ở cảnh hai bến cảng trong storyboard.json |
 | statement | Chốt một ý, đặt câu hỏi, giới thiệu kết quả | title và detail |
 | flow | Một đối tượng đi qua 2–4 bên | steps gồm at (giây tính từ đầu cảnh), label, result. Bước đầu ở giây 0 |
+| video | Ghép clip ngắn, dựng âm thanh theo track lời chung | video, ví dụ media/S05.mp4, và trimStart tùy chọn bằng giây |
 | image | Dùng slide, sơ đồ, ảnh màn hình của tác giả | image, ví dụ media/slide-04.png |
 
 Đặt ảnh hoặc bản thu trong `public/media/`. Ví dụ, với file `public/media/voice.mp3`, đặt `"audio": "media/voice.mp3"` ở cấp cao nhất. Dùng một track lời đọc đã cắt cho đúng timeline. Nếu anh nói trực tiếp thì giữ `"audio": null`. Có thể mở rộng hình và chuyển động trong `src/index.jsx` và `src/style.css`.

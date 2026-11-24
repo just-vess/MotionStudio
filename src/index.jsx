@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Composition, Html5Audio, Img, Sequence, interpolate, registerRoot, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Composition, Html5Audio, Img, OffthreadVideo, Sequence, interpolate, registerRoot, staticFile, useCurrentFrame} from 'remotion';
 import board from '../content/storyboard.json';
 import './style.css';
 import {Illustration} from './Illustration';
@@ -21,6 +21,12 @@ function Flow({steps, frame}) {
 
 function Scene({scene}) {
   const frame = useCurrentFrame();
+  if (scene.layout === 'video') {
+    return <AbsoluteFill style={{background:'#102d31'}}>
+      <OffthreadVideo src={staticFile(scene.video)} muted trimBefore={Math.round((scene.trimStart ?? 0) * fps)}
+        style={{width:'100%', height:'100%', objectFit:'contain'}}/>
+    </AbsoluteFill>;
+  }
   if (scene.layout === 'illustration') return <Illustration scene={scene}/>;
   const intro = fade(frame + 1, 14);
   return <AbsoluteFill className={'canvas ' + scene.layout}>
