@@ -1,52 +1,204 @@
 {
-  "title": "Từ yêu cầu đến lịch dùng phòng",
-  "targetSeconds": 40,
-  "pilotStart": 5,
+  "title": "Hai bến cảng",
+  "targetSeconds": 36,
+  "pilotStart": 0,
   "audio": null,
   "scenes": [
     {
-      "id": "request",
-      "seconds": 10,
-      "layout": "statement",
-      "title": "Ai đang giữ lịch phòng?",
-      "detail": "Một người cần đặt phòng. Hai nhóm đang giữ hai bản lịch.",
-      "source": "Ví dụ hư cấu · phần 1",
-      "narration": "Khi hai nhóm giữ hai bản lịch, người đặt phòng cần hỏi từng nhóm để biết phòng còn trống."
-    },
-    {
-      "id": "handoff",
-      "seconds": 20,
-      "layout": "flow",
-      "title": "Theo dấu một yêu cầu",
-      "detail": "Cùng một mã yêu cầu đi qua ba bước.",
-      "source": "Ví dụ hư cấu · phần 2",
-      "narration": "Người đặt gửi giờ và số người. Bộ phận điều phối đối chiếu lịch. Khi xác nhận được gửi về, hai bên cùng biết phòng nào đã được giữ.",
-      "steps": [
+      "id": "hai-ben-cang",
+      "seconds": 30,
+      "layout": "illustration",
+      "title": "Hai bến cảng, một chuyến hàng",
+      "detail": "Chuyện gì khiến con tàu rời bến?",
+      "source": "Ví dụ hư cấu do MotionStudio viết để minh họa phương pháp.",
+      "narration": "Một bên cảng còn hàng. Bên kia, kho đã trống. Con tàu vẫn nằm im. Vì sao? Người giữ kho bên kia gửi về một tin nhắn. Bây giờ bến gửi mới biết hàng cần đi đâu. Khi thùng hàng sang bờ bên kia, thứ đi trước nó là thông tin.",
+      "cues": [
         {
           "at": 0,
-          "label": "Người đặt",
-          "result": "Gửi giờ và số người"
+          "text": "Một bên còn hàng. Bên kia, kho đã trống."
         },
         {
-          "at": 6,
-          "label": "Điều phối",
-          "result": "Đối chiếu lịch phòng"
+          "at": 5,
+          "text": "Con tàu vẫn nằm im. Vì sao?"
         },
         {
-          "at": 13,
-          "label": "Người nhận",
-          "result": "Nhận xác nhận giữ chỗ"
+          "at": 9,
+          "text": "Từ kho trống, một tin nhắn đi ngược về bến gửi."
+        },
+        {
+          "at": 15,
+          "text": "Bến gửi đã biết hàng cần đi đâu."
+        },
+        {
+          "at": 21,
+          "text": "Con tàu mang hàng sang bờ bên kia."
+        },
+        {
+          "at": 26,
+          "text": "Thứ đi trước chuyến hàng là thông tin."
+        }
+      ],
+      "layers": [
+        {
+          "file": "art/harbor.svg",
+          "width": 1600,
+          "keys": [
+            {
+              "at": 0,
+              "x": 0,
+              "y": 0,
+              "opacity": 1,
+              "scale": 1
+            }
+          ]
+        },
+        {
+          "file": "art/stock.svg",
+          "width": 70,
+          "keys": [
+            {
+              "at": 0,
+              "x": 1138,
+              "y": 519,
+              "opacity": 0,
+              "scale": 1
+            },
+            {
+              "at": 24,
+              "x": 1138,
+              "y": 519,
+              "opacity": 0,
+              "scale": 1
+            },
+            {
+              "at": 25,
+              "x": 1138,
+              "y": 519,
+              "opacity": 1,
+              "scale": 1
+            }
+          ]
+        },
+        {
+          "file": "art/ferry.svg",
+          "width": 195,
+          "keys": [
+            {
+              "at": 0,
+              "x": 378,
+              "y": 537,
+              "opacity": 1,
+              "scale": 1
+            },
+            {
+              "at": 5,
+              "x": 378,
+              "y": 540,
+              "opacity": 1,
+              "scale": 1
+            },
+            {
+              "at": 9,
+              "x": 378,
+              "y": 537,
+              "opacity": 1,
+              "scale": 1
+            },
+            {
+              "at": 15,
+              "x": 378,
+              "y": 540,
+              "opacity": 1,
+              "scale": 1
+            },
+            {
+              "at": 19,
+              "x": 671,
+              "y": 557,
+              "opacity": 1,
+              "scale": 1
+            },
+            {
+              "at": 23.5,
+              "x": 1057,
+              "y": 541,
+              "opacity": 1,
+              "scale": 1
+            },
+            {
+              "at": 29.5,
+              "x": 1057,
+              "y": 538,
+              "opacity": 1,
+              "scale": 1
+            }
+          ]
+        },
+        {
+          "file": "art/message.svg",
+          "width": 81,
+          "keys": [
+            {
+              "at": 0,
+              "x": 1252,
+              "y": 444,
+              "opacity": 0,
+              "scale": 1
+            },
+            {
+              "at": 8,
+              "x": 1252,
+              "y": 444,
+              "opacity": 0,
+              "scale": 1
+            },
+            {
+              "at": 9,
+              "x": 1238,
+              "y": 425,
+              "opacity": 1,
+              "scale": 1
+            },
+            {
+              "at": 11,
+              "x": 968,
+              "y": 378,
+              "opacity": 1,
+              "scale": 1
+            },
+            {
+              "at": 13.5,
+              "x": 660,
+              "y": 378,
+              "opacity": 1,
+              "scale": 1
+            },
+            {
+              "at": 15,
+              "x": 378,
+              "y": 451,
+              "opacity": 1,
+              "scale": 1
+            },
+            {
+              "at": 16,
+              "x": 378,
+              "y": 451,
+              "opacity": 0,
+              "scale": 1
+            }
+          ]
         }
       ]
     },
     {
-      "id": "close",
-      "seconds": 10,
+      "id": "ket-luan",
+      "seconds": 6,
       "layout": "statement",
-      "title": "Một lịch đã xác nhận",
-      "detail": "Người đặt tra lại cùng một mã khi cần đổi giờ.",
-      "source": "Ví dụ hư cấu · phần 3",
-      "narration": "Khi cần đổi giờ, người đặt dùng lại mã yêu cầu để tìm đúng lịch đã xác nhận."
+      "title": "Thông tin đi trước. Hàng hóa theo sau.",
+      "detail": "Hai bến phối hợp được khi nhu cầu ở một bên dẫn đến hành động ở bên kia.",
+      "source": "Ví dụ hư cấu · kết luận của tình huống hai cảng.",
+      "narration": "Hai bến phối hợp được khi nhu cầu ở một bên dẫn đến hành động ở bên kia."
     }
   ]
 }

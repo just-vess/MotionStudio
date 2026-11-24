@@ -2,6 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Composition, Html5Audio, Img, Sequence, interpolate, registerRoot, staticFile, useCurrentFrame} from 'remotion';
 import board from '../content/storyboard.json';
 import './style.css';
+import {Illustration} from './Illustration';
 
 const fps = 30;
 const total = board.scenes.reduce((sum, scene) => sum + Math.round(scene.seconds * fps), 0);
@@ -20,6 +21,7 @@ function Flow({steps, frame}) {
 
 function Scene({scene}) {
   const frame = useCurrentFrame();
+  if (scene.layout === 'illustration') return <Illustration scene={scene}/>;
   const intro = fade(frame + 1, 14);
   return <AbsoluteFill className={'canvas ' + scene.layout}>
     <header>{board.title}</header>
